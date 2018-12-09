@@ -27,6 +27,7 @@ export default ({ onClick, diameter, padding }) => (
   <StartButton
     onClick={noPropagation(onClick)}
     onMouseDown={noPropagation()}
+    onTouchStart={noPropagation()}
     style={{ width: diameter, height: diameter, padding: padding }}
   >
     <StartIcon />
