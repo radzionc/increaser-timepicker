@@ -16,3 +16,5 @@ export interface Props {
 }
 
 declare class TimePicker extends React.Component<Props, any> {}
+
+export default TimePicker
