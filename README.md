@@ -2,7 +2,7 @@
 
 > 
 
-[![NPM](https://img.shields.io/npm/v/increaser-timepicker.svg)](https://www.npmjs.com/package/increaser-timepicker) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/increaser-timepicker.svg)](https://www.npmjs.com/package/increaser-timepicker)
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*rPME-ceW9GySQpv2qSA41A.gif)
 
@@ -27,6 +27,14 @@ const Container = ({ children }) => (
   </div>
 )
 
+// optional
+const theme = {
+  actionColor: 'rgba(231, 76, 60,.9)',
+  selectColor: '#ecf0f1',
+  selectTextColor: '#34495e',
+  circleColor: 'rgba(255, 255, 255, 0.15)'
+}
+
 class Example extends React.Component {
   constructor(props) {
     super(props)
@@ -37,6 +45,7 @@ class Example extends React.Component {
     const { duration } = this.state
     return (
       <TimePicker
+        theme={theme}
         duration={duration}
         wrapper={Container}
         onStart={() => console.log('Start!')}
