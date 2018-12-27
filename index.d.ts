@@ -15,4 +15,4 @@ export interface Props {
   theme: Theme
 }
 
-declare class TimePicker extends React.Component<SimpleSelectProps, any> {}
+declare class TimePicker extends React.Component<Props, any> {}
