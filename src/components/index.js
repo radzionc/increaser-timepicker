@@ -98,8 +98,8 @@ export default class TimePicker extends React.Component {
 
     const rect = this.view.getBoundingClientRect()
     const { pageX, pageY } = e.pageX ? e : e.changedTouches[0]
-    const x = pageX - rect.x
-    const y = pageY - rect.y
+    const x = pageX - rect.left
+    const y = pageY - rect.top
 
     const { diameter } = this.state
     const center = diameter / 2
