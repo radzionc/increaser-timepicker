@@ -30,7 +30,7 @@ export default class TimePicker extends React.Component {
     const { wrapper: Wrapper, theme } = this.props
     const { width, height, diameter } = this.state
     const renderContent = () => {
-      const startDiameter = diameter * (width > height ? 0.16 : 0.2)
+      const startDiameter = diameter * (window.innerWidth > window.innerHeight ? 0.16 : 0.2)
       const startPadding = startDiameter * 0.3
       const { duration, onStart } = this.props
 
