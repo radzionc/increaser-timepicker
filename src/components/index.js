@@ -113,8 +113,10 @@ export default class TimePicker extends React.Component {
   }
 
   onResize = () => {
-    const { width, height } = this.wrapper.getBoundingClientRect()
-    const diameter = Math.min(width, height)
-    this.setState({ width, height, diameter })
+    if (this.wrapper) {
+      const { width, height } = this.wrapper.getBoundingClientRect()
+      const diameter = Math.min(width, height)
+      this.setState({ width, height, diameter })
+    }
   }
 }
