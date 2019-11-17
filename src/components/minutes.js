@@ -2,7 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { toRadians } from '../utils'
 
-const MINUTE_PERSENTAGE_SIZE = 0.08
+
+const getMinutePercentageSize = (diameter) => {
+  console.log(diameter)
+  if (diameter < 400) {
+    return 0.1
+  }
+  if (diameter < 320) {
+    return 0.12
+  }
+  return 0.09
+}
 
 const getMinutes = (start, step, limit) => {
   const inner = minutes => {
@@ -28,11 +38,12 @@ const Minutes = styled.p`
   user-select: none;
 `
 
-export default ({ diameter, duration }) => {
+export default ({ diameter, duration, onClick }) => {
   const center = diameter / 2
   const radius = center * 0.8
   const minutesNumbers = getMinutes(5, 5, 60)
-  const size = diameter * MINUTE_PERSENTAGE_SIZE
+  const size = diameter * getMinutePercentageSize(diameter)
+  
   const moveDistance = size / 2
   const minutes = minutesNumbers.map(minute => {
     const angle = toRadians(minute * 6)
@@ -46,8 +57,11 @@ export default ({ diameter, duration }) => {
       height: size,
       lineHeight: `${size}px`
     }
+    const clickableProps = onClick ? {
+      onClick: () => onClick(minute)
+    } : {}
     return (
-      <Minutes style={style} key={minute} selected={minute === duration}>
+      <Minutes {...clickableProps} style={style} key={minute} selected={minute === duration}>
         {minute}
       </Minutes>
     )

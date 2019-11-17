@@ -61,7 +61,6 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "increaser-timer": "^1.0.1",
     "styled-components": "^4.1.1"
   }
 }

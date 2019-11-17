@@ -10,6 +10,7 @@ export interface Theme {
 export interface Props {
   duration: number;
   wrapper: React.Component;
+  noDrag?: boolean;
   onStart: () => void;
   onDurationChange: (duration: number) => void;
   theme: Theme

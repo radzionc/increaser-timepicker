@@ -27,7 +27,7 @@ export default class TimePicker extends React.Component {
   }
 
   render() {
-    const { wrapper: Wrapper, theme } = this.props
+    const { wrapper: Wrapper, theme, noDrag, onDurationChange } = this.props
     const { width, height, diameter } = this.state
     const renderContent = () => {
       const startDiameter = diameter * (width > height ? 0.16 : 0.2)
@@ -37,8 +37,8 @@ export default class TimePicker extends React.Component {
       return (
         <React.Fragment>
           <Circle>
-            <Line diameter={diameter} duration={duration}/>
-            <Minutes diameter={diameter} duration={duration} />
+            {!noDrag && <Line diameter={diameter} duration={duration}/>}
+            <Minutes onClick={noDrag ? onDurationChange : undefined} diameter={diameter} duration={duration} />
           </Circle>
           <Start
             onClick={onStart}
@@ -48,19 +48,21 @@ export default class TimePicker extends React.Component {
         </React.Fragment>
       )
     }
-
+    const dragParams = noDrag ? {} : {
+      onMouseDown: this.onMouseDown,
+      onTouchStart: this.onMouseDown,
+      onMouseMove: this.onMouseMove,
+      onTouchMove: this.onMouseMove,
+      onMouseUp: this.onMouseUp,
+      onTouchEnd: this.onMouseUp
+    }
     return (
       <ThemeProvider theme={{ ...defaultTheme, ...theme }}>
         <Wrapper ref={el => (this.wrapper = el)}>
           <Container
             ref={el => (this.view = el)}
             style={{ width: diameter, height: diameter }}
-            onMouseDown={this.onMouseDown}
-            onTouchStart={this.onMouseDown}
-            onMouseMove={this.onMouseMove}
-            onTouchMove={this.onMouseMove}
-            onMouseUp={this.onMouseUp}
-            onTouchEnd={this.onMouseUp}
+            {...dragParams}
           >
             {this.view && renderContent()}
           </Container>
