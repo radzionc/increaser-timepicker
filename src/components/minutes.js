@@ -4,7 +4,6 @@ import { toRadians } from '../utils'
 
 
 const getMinutePercentageSize = (diameter) => {
-  console.log(diameter)
   if (diameter < 400) {
     return 0.1
   }
