@@ -55,7 +55,7 @@ class Example extends React.Component {
   }
 }
 ```
-## [Story on Medium](https://medium.com/p/9b2d9215a415)
+## [Blog Post](https://geekrodion.com/blog/timepicker-react)
 
 ## License
 
