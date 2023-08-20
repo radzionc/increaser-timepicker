@@ -6,7 +6,7 @@
 
 ![alt text](https://cdn-images-1.medium.com/max/2000/1*rPME-ceW9GySQpv2qSA41A.gif)
 
-## [Demo](https://rodionchachura.github.io/increaser-timepicker/)
+## [Demo](https://radzionc.github.io/increaser-timepicker/)
 
 ## Install
 
